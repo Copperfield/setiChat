@@ -122,7 +122,7 @@ public class SeTIChatSignUpActivity extends Activity {
 		// Creating a general layout
 		LinearLayout background = new LinearLayout(this);
 		background.setLayoutParams(new LinearLayout.LayoutParams(
-				LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 		background.setOrientation(LinearLayout.VERTICAL);
 		background.setPadding(0, 0, 0, 0);
 
@@ -173,7 +173,8 @@ public class SeTIChatSignUpActivity extends Activity {
 						"1",
 						content);
 				
-				
+				Log.d("SeTIChatSignInActivity",msg);
+			
 				mService.sendMessage(msg);
 			}
 		});

@@ -10,6 +10,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.media.AudioManager;
+import android.media.SoundPool;
+import android.media.SoundPool.OnLoadCompleteListener;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.app.FragmentActivity;
@@ -40,11 +43,17 @@ public class MainActivitySeTIChat extends FragmentActivity implements ActionBar.
 	private BroadcastReceiver openReceiver;
 	private BroadcastReceiver chatMessageReceiver;
 	
+	// Sounds
+	int sonido;
+	SoundPool sndPool = new SoundPool(16, AudioManager.STREAM_MUSIC, 100); 
+
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		sndPool.load(getApplicationContext(), R.raw.sonido, 1); 
 
 		// Set up the action bar to show tabs.
 		final ActionBar actionBar = getActionBar();
@@ -88,6 +97,15 @@ public class MainActivitySeTIChat extends FragmentActivity implements ActionBar.
 				CharSequence text = "SeTIChatConnected";
 				int duration = Toast.LENGTH_SHORT;
 
+				// Play sound
+				sndPool.setOnLoadCompleteListener(new OnLoadCompleteListener() {
+		              @Override
+		              public void onLoadComplete(SoundPool soundPool, int sampleId,
+		                  int status) {
+							sndPool.play(R.raw.sonido,1.0f,1.0f,1,0,1.0f);
+		              } 
+		        }); 
+				
 				Toast toast = Toast.makeText(context1, text, duration);
 				toast.show();
 		    }
@@ -102,7 +120,15 @@ public class MainActivitySeTIChat extends FragmentActivity implements ActionBar.
 			    	Context context1 = getApplicationContext();
 					CharSequence text = "SeTIChat Message Received";
 					int duration = Toast.LENGTH_SHORT;
-
+					
+					sndPool.setOnLoadCompleteListener(new OnLoadCompleteListener() {
+			              @Override
+			              public void onLoadComplete(SoundPool soundPool, int sampleId,
+			                  int status) {
+								sndPool.play(R.raw.sonido,1.0f,1.0f,1,0,1.0f);
+			              } 
+			        }); 
+					
 					Toast toast = Toast.makeText(context1, text, duration);
 					toast.show();
 			    }

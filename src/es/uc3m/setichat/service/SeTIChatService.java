@@ -40,7 +40,7 @@ public class SeTIChatService extends Service implements ChannelService {
 		// SeTIChat connection is set up in this step.
 		// Mobile phone should be changed with the apropiate value
 		channel = new ChannelAPI();
-		this.connect("MobileNumber");
+		this.connect("100065013");
 		binder.onCreate(this);
 
 	}
