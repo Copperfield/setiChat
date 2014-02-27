@@ -138,7 +138,7 @@ public class SeTIChatConversationActivity extends Activity {
 		// Creating a general layout
 		LinearLayout background = new LinearLayout(this);
 		background.setLayoutParams(new LinearLayout.LayoutParams(
-				LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+				LayoutParams.MATCH_PARENT, LayoutParams.FILL_PARENT));
 		background.setOrientation(LinearLayout.VERTICAL);
 		background.setPadding(0, 0, 0, padding);
 
@@ -146,19 +146,19 @@ public class SeTIChatConversationActivity extends Activity {
 		// button
 		LinearLayout background_edit = new LinearLayout(this);
 		background_edit.setLayoutParams(new LinearLayout.LayoutParams(
-				LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
+				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		background_edit.setOrientation(LinearLayout.HORIZONTAL);
 
 		// Creating the view to show the conversations
 		text = new TextView(this);
 		text.setLayoutParams(new FrameLayout.LayoutParams(
-				LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 		text.setPadding(padding, padding, padding, 0);
 		//text.setId(R.id.conversation);
 		// Adding some scroll
 		scroller = new ScrollView(this);
 		scroller.setLayoutParams(new LinearLayout.LayoutParams(
-				LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT, 1f));
+				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f));
 		scroller.post(new Runnable() {
 			public void run() {
 				scroller.fullScroll(ScrollView.FOCUS_DOWN);
@@ -168,13 +168,13 @@ public class SeTIChatConversationActivity extends Activity {
 		// Creating the edit text to add new chats
 		edit = new EditText(this);
 		edit.setLayoutParams(new LinearLayout.LayoutParams(
-				LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT, 1f));
+				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT, 1f));
 		edit.requestFocus();
 
 		// Of course a send button
 		Button send = new Button(this);
 		send.setLayoutParams(new LinearLayout.LayoutParams(
-				LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT, 3f));
+				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT, 3f));
 		send.setText("Send");
 
 		

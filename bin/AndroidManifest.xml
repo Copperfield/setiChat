@@ -26,6 +26,7 @@
         </activity>
         <service android:name=".service.SeTIChatService"></service>
         <activity android:name=".activity.SeTIChatConversationActivity"></activity>
+        <activity android:name=".activity.SeTIChatSignUpActivity"></activity>
         
         
     </application>

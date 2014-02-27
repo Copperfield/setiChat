@@ -50,11 +50,11 @@ public class MainActivitySeTIChat extends FragmentActivity implements ActionBar.
 		final ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		// For each of the sections in the app, add a tab to the action bar.
-		actionBar.addTab(actionBar.newTab().setText(R.string.title_section1)
+		actionBar.addTab(actionBar.newTab().setText(R.string.contacs)
 				.setTabListener(this));
-		actionBar.addTab(actionBar.newTab().setText(R.string.title_section2)
+		actionBar.addTab(actionBar.newTab().setText(R.string.extra)
 				.setTabListener(this));
-		actionBar.addTab(actionBar.newTab().setText(R.string.title_section2)
+		actionBar.addTab(actionBar.newTab().setText(R.string.signup)
 				.setTabListener(this));
 		Log.i("Activty", "onCreate");
 		
@@ -166,6 +166,16 @@ public class MainActivitySeTIChat extends FragmentActivity implements ActionBar.
 	@Override
 	public void onTabSelected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
+		
+		// Launch signUp Activity
+		if (tab.getText() .equals(getResources().getString(R.string.signup))){
+			 Log.d("MainActivity","SingUp: Setting Intent...");
+			 Intent intent = new Intent();
+		     intent.setClass(MainActivitySeTIChat.this, SeTIChatSignUpActivity.class);          
+		     startActivity(intent);
+		}
+
+		
 		// When the given tab is selected, show the tab contents in the
 		// container view.
 		ContactsFragment fragment = new ContactsFragment();
@@ -197,7 +207,7 @@ public class MainActivitySeTIChat extends FragmentActivity implements ActionBar.
 	  }
 	  
 	  /** Defines callbacks for service binding, passed to bindService() */
-	    private ServiceConnection mConnection = new ServiceConnection() {
+		private ServiceConnection mConnection = new ServiceConnection() {
 
 	        @Override
 	        public void onServiceConnected(ComponentName className,

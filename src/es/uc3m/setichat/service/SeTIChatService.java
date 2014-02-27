@@ -17,7 +17,7 @@ import android.util.Log;
  * 
  * 
  * @author Guillermo Suarez de Tangil <guillermo.suarez.tangil@uc3m.es>
- * @author Jorge Blasco Al’s <jbalis@inf.uc3m.es>
+ * @author Jorge Blasco Alï¿½s <jbalis@inf.uc3m.es>
  */
 
 public class SeTIChatService extends Service implements ChannelService {
@@ -78,7 +78,7 @@ public class SeTIChatService extends Service implements ChannelService {
 				String key = keys[0];
 				try {
 					channel = new ChannelAPI(
-							"http://setichatchannelapitest.appspot.com", key,
+							"http://setichat.appspot.com", key,
 							current); // Production Example
 					channel.open();
 
@@ -105,7 +105,7 @@ public class SeTIChatService extends Service implements ChannelService {
 
 		class SendMessage extends AsyncTask<String, String, String> {
 			protected String doInBackground(String... messages) {
-				Log.i("SendMessage", "send message test");
+				Log.i("SendMessage", messages[0]);
 				String message = messages[0];
 				try {
 					channel.send(message, "/chat");
@@ -142,7 +142,7 @@ public class SeTIChatService extends Service implements ChannelService {
 		Log.i("onOpen", "Channel Opened");
 		String intentKey = "es.uc3m.SeTIChat.CHAT_OPEN";
 		Intent openIntent = new Intent(intentKey);
-		// ÀWhy should we set a Package?
+		// ï¿½Why should we set a Package?
 		openIntent.setPackage("es.uc3m.setichat");
 		Context context = getApplicationContext();
 		context.sendBroadcast(openIntent);
